@@ -5,14 +5,15 @@ public class Player {
     private int width, height;
     private int flashTime;
     private int maxFlash;
+    private int projectiles;
     private double x, y;
     private double xCenter, yCenter;
     private double speed;
-    private double health;
+    private double maxHealth, health;
     private double reload;
     private double spread;
 
-    public Player(BufferedImage image, double size, int x, int y, int speed, double health, double reload, double spread) {
+    public Player(BufferedImage image, double size, int x, int y, int speed, double maxHealth, double reload, double spread, int projectiles) {
         this.image = image;
         width = (int) (image.getWidth() * size);
         height = (int) (image.getHeight() * size);
@@ -23,9 +24,11 @@ public class Player {
         xCenter = x + ((double) width / 2) - (double) width / 7;
         yCenter = y + ((double) height / 2);
         this.speed = speed;
-        this.health = health;
+        this.maxHealth = maxHealth;
+        health = maxHealth;
         this.reload = reload;
         this.spread = spread;
+        this.projectiles = projectiles;
     }
 
     public BufferedImage getImage() {
@@ -62,6 +65,10 @@ public class Player {
         return speed;
     }
 
+    public double getMaxHealth() {
+        return maxHealth;
+    }
+
     public double getHealth() {
         return health;
     }
@@ -72,6 +79,10 @@ public class Player {
 
     public double getSpread() {
         return spread;
+    }
+
+    public int getProjectiles() {
+        return projectiles;
     }
 
     public void setImage(BufferedImage image) {
@@ -106,6 +117,14 @@ public class Player {
         this.speed = speed;
     }
 
+    public void setMaxFlash(int maxFlash) {
+        this.maxFlash = maxFlash;
+    }
+
+    public void setMaxHealth(double maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
     public void setHealth(double health) {
         this.health = health;
     }
@@ -116,6 +135,10 @@ public class Player {
 
     public void setSpread(double spread) {
         this.spread = spread;
+    }
+
+    public void setProjectiles(int projectiles) {
+        this.projectiles = projectiles;
     }
 
     public void hitFlash() {
