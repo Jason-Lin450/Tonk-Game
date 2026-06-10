@@ -6,6 +6,7 @@ public class Player {
     private int flashTime;
     private int maxFlash;
     private int projectiles;
+    private double size;
     private double x, y;
     private double xCenter, yCenter;
     private double speed;
@@ -15,6 +16,7 @@ public class Player {
 
     public Player(BufferedImage image, double size, int x, int y, int speed, double maxHealth, double reload, double spread, int projectiles) {
         this.image = image;
+        this.size = size;
         width = (int) (image.getWidth() * size);
         height = (int) (image.getHeight() * size);
         flashTime = 0;
@@ -35,6 +37,10 @@ public class Player {
         return image;
     }
 
+    public double getSize() {
+        return size;
+    }
+
     public double getX() {
         return x;
     }
@@ -44,10 +50,12 @@ public class Player {
     }
 
     public int getWidth() {
+        width = (int) (image.getWidth() * size);
         return width;
     }
 
     public int getHeight() {
+        height = (int) (image.getHeight() * size);
         return height;
     }
 
@@ -61,8 +69,16 @@ public class Player {
         return yCenter;
     }
 
+    public double getDistance(double x, double y) {
+        return Math.sqrt(Math.pow(updatexCenter() - x, 2) + Math.pow(updateyCenter() - y, 2));
+    }
+
     public double getSpeed() {
         return speed;
+    }
+
+    public double getRoundedSpeed() {
+        return (double) (int) (speed * 100) / 100;
     }
 
     public double getMaxHealth() {
@@ -77,8 +93,16 @@ public class Player {
         return reload;
     }
 
+    public double getRoundedReload() {
+        return (double) (int) (reload * 100) / 100;
+    }
+
     public double getSpread() {
         return spread;
+    }
+
+    public double getRoundedSpread() {
+        return (double) (int) (spread * 100) / 100;
     }
 
     public int getProjectiles() {
@@ -87,6 +111,10 @@ public class Player {
 
     public void setImage(BufferedImage image) {
         this.image = image;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
     }
 
     public void setX(double x) {

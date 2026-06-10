@@ -10,6 +10,7 @@ public class Enemy {
     private int width, height;
     private int flashTime;
     private int maxFlash;
+    private int xp;
     private double size;
     private double x, y;
     private double xCenter, yCenter;
@@ -41,6 +42,9 @@ public class Enemy {
         angle = 0;
         reload = 0;
         spread = 0;
+        if (type == 1) {
+            xp = 1;
+        }
     }
 
     public BufferedImage getImage() {
@@ -69,6 +73,10 @@ public class Enemy {
 
     public int getHeight() {
         return height;
+    }
+
+    public int getXp() {
+        return xp;
     }
 
     public double updatexCenter() {
@@ -114,7 +122,7 @@ public class Enemy {
     }
 
     public double getDistance(double x, double y) {
-        return Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
+        return Math.sqrt(Math.pow(updatexCenter() - x, 2) + Math.pow(updateyCenter() - y, 2));
     }
 
     public void setImage(BufferedImage image) {
@@ -143,6 +151,10 @@ public class Enemy {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
     }
 
     public void setxCenter(double xCenter) {
