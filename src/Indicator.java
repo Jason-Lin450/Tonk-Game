@@ -41,6 +41,10 @@ public class Indicator {
         return image;
     }
 
+    public double getSize() {
+        return size;
+    }
+
     public int getsWidth() {
         width = (int) (image.getWidth() * size * alpha);
         return width;
@@ -104,6 +108,10 @@ public class Indicator {
 
     public double getAlpha() {
         return alpha;
+    }
+
+    public double getDistance(double x, double y) {
+        return Math.sqrt(Math.pow(updatexCenter() - x, 2) + Math.pow(updateyCenter() - y, 2));
     }
 
     public void setImage(BufferedImage image) {

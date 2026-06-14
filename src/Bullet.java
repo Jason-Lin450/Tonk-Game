@@ -2,7 +2,6 @@ import java.awt.image.BufferedImage;
 
 public class Bullet {
     private BufferedImage image;
-    private int type;
     private int width, height;
     private int bounces, splinters, penetrations, ricochets;
     private double size;
@@ -16,7 +15,6 @@ public class Bullet {
 
     public Bullet(BufferedImage image, double x, double y, double size, double speed, double angle, double damage, double knockback, int bounces, int splinters, int penetrations, int ricochets) {
         this.image = image;
-        this.type = 1;
         this.size = size;
         this.width = (int) (image.getWidth() * size);
         this.height = (int) (image.getHeight() * size);
@@ -39,10 +37,6 @@ public class Bullet {
 
     public BufferedImage getImage() {
         return image;
-    }
-
-    public int getType() {
-        return type;
     }
 
     public double getX() {
@@ -121,10 +115,6 @@ public class Bullet {
 
     public void setImage(BufferedImage image) {
         this.image = image;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 
     public void setX(double x) {
