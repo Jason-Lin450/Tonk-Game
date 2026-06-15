@@ -122,6 +122,10 @@ public class Player {
         return projectiles;
     }
 
+    public double getRoundedProjectiles() {
+        return (double) (int) (projectiles * 100) / 100;
+    }
+
     public Rectangle getRect() {
         rect.setBounds((int) x, (int) y, width, height);
         return rect;
