@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
 public class DisplayPanel extends JPanel implements MouseListener, KeyListener, ActionListener {
     private static final int WINDOW_WIDTH = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(), WINDOW_HEIGHT = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
     private static final int BORDER_SIZE = WINDOW_WIDTH / 100;
@@ -92,7 +91,7 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
         epicUpgrades.add(new Upgrade(new ImageIcon("src/charge.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, player.getReload() * 0.0000001 / 4, 0, 0, 0, 0, 0, 0, 0, "Charge:\nGain 1% Damage for\nevery 4 Reload\n(+" + (double) (int) (player.getReload() * 25) / 100 + "% Damage)"));
         epicUpgrades.add(new Upgrade(new ImageIcon("src/force.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, knockback * 0.0000006, 0, 0, 0, 0, 0, 0, 0, "Force:\nGain 6% Damage for\nevery 1 Knockback\n(+" + (double) (int) (knockback * 600) / 100 + "% Damage)"));
         epicUpgrades.add(new Upgrade(new ImageIcon("src/gamble.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, "Gamble:\n-5% to +15%\non every stat"));
-        epicUpgrades.add(new Upgrade(new ImageIcon("src/inertia.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "Inertia:\n+1 Knockback for\nevery 0.3 Bullet Size\n(+" + (double) (int) (bulletSize / 0.3 * 100) / 100 + " Knockback)"));
+        epicUpgrades.add(new Upgrade(new ImageIcon("src/inertia.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, bulletSize / 0.3, 0, 0, 0, 0, 0, 0, "Inertia:\n+1 Knockback for\nevery 0.3 Bullet Size\n(+" + (double) (int) (bulletSize / 0.3 * 100) / 100 + " Knockback)"));
         if (splinters > 0 || bounces > 0) {
             epicUpgrades.add(new Upgrade(new ImageIcon("src/reuse.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0.000005, 0.000005, 0, 0, 0, 0.000003, 0, 0, 0, 0, 0, -0.000001, -0.000001, 0, 0, 0, 0, "Reuse:\n+50% Max Health\n+30% Speed\n-10% Splinters\n-10% Bounces"));
         }
@@ -348,37 +347,6 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         PRESSED_KEYS[key] = false;
-    }
-
-    //unused methods
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 
     //hitboxes
@@ -1186,7 +1154,7 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
             epicUpgrades.add(new Upgrade(new ImageIcon("src/charge.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, player.getReload() * 0.0000001 / 4, 0, 0, 0, 0, 0, 0, 0, "Charge:\nGain 1% Damage for\nevery 4 Reload\n(+" + (double) (int) (player.getReload() * 25) / 100 + "% Damage)"));
             epicUpgrades.add(new Upgrade(new ImageIcon("src/force.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, knockback * 0.0000006, 0, 0, 0, 0, 0, 0, 0, "Force:\nGain 6% Damage for\nevery 1 Knockback\n(+" + (double) (int) (knockback * 600) / 100 + "% Damage)"));
             epicUpgrades.add(new Upgrade(new ImageIcon("src/gamble.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, (Math.random() * 20 - 5) * 0.0000001, "Gamble:\n-5% to +15%\non every stat"));
-            epicUpgrades.add(new Upgrade(new ImageIcon("src/inertia.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "Inertia:\n+1 Knockback for\nevery 0.3 Bullet Size\n(+" + (double) (int) (bulletSize / 0.3 * 100) / 100 + " Knockback)"));
+            epicUpgrades.add(new Upgrade(new ImageIcon("src/inertia.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, bulletSize / 0.3, 0, 0, 0, 0, 0, 0, "Inertia:\n+1 Knockback for\nevery 0.3 Bullet Size\n(+" + (double) (int) (bulletSize / 0.3 * 100) / 100 + " Knockback)"));
             if (splinters > 0 || bounces > 0) {
                 epicUpgrades.add(new Upgrade(new ImageIcon("src/reuse.png"), 0.5, WINDOW_WIDTH / 4.0, WINDOW_HEIGHT / 4.0, 0, 0.000005, 0.000005, 0, 0, 0, 0.000003, 0, 0, 0, 0, 0, -0.000001, -0.000001, 0, 0, 0, 0, "Reuse:\n+50% Max Health\n+30% Speed\n-10% Splinters\n-10% Bounces"));
             }
@@ -1211,12 +1179,6 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
                 do {
                     if (boss) {
                         u = getUpgrade(0, 0, 0);
-                        boss = false;
-                        for (Enemy e : enemies) {
-                            if (e.getXp() == xpReq) {
-                                boss = true;
-                            }
-                        }
                     } else {
                         u = getUpgrade(55, 30, 10);
                     }
@@ -1231,6 +1193,13 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
                 add(ub);
                 ub.addActionListener(this);
                 ub.setVisible(true);
+            }
+            boss = false;
+            for (Enemy e : enemies) {
+                if (e.getXp() == xpReq) {
+                    boss = true;
+                    break;
+                }
             }
         }
     }
@@ -1512,4 +1481,23 @@ public class DisplayPanel extends JPanel implements MouseListener, KeyListener, 
         }
         repaint();
     }
+
+    //unused methods
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void mouseClicked(MouseEvent e) {}
+
+    @Override
+    public void mousePressed(MouseEvent e) {}
+
+    @Override
+    public void mouseReleased(MouseEvent e) {}
+
+    @Override
+    public void mouseEntered(MouseEvent e) {}
+
+    @Override
+    public void mouseExited(MouseEvent e) {}
 }
